@@ -1,0 +1,123 @@
+.about {
+  padding: 6rem 0;
+}
+
+.about-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-portrait {
+  position: relative;
+}
+
+.portrait-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  background: linear-gradient(45deg, #06b6d4, #3b82f6);
+  padding: 2px;
+}
+
+.portrait-border::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background-color: #0a0f1e;
+  border-radius: 1.5rem;
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2));
+  border-radius: 1.5rem;
+  filter: blur(40px);
+}
+
+.portrait-container {
+  position: relative;
+  padding: 1rem;
+}
+
+.portrait-container img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 30px rgba(6, 182, 212, 0.2));
+}
+
+.portrait-fade {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: 6rem;
+  background: linear-gradient(to top, #0a0f1e, transparent);
+  z-index: 20;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-name {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 4vw, 2.25rem);
+}
+
+.about-role {
+  color: #22d3ee;
+  font-size: 1.125rem;
+}
+
+.about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #d1d5db;
+}
+
+.about-contact {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #d1d5db;
+}
+
+.contact-item svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #22d3ee;
+}
+
+.contact-item a {
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.contact-item a:hover {
+  color: #22d3ee;
+}
+
+.about-cta {
+  padding-top: 1rem;
+}

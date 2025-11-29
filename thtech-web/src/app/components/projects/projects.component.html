@@ -1,0 +1,25 @@
+<section id="projekte" class="projects">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Referenzen</h2>
+      <p class="section-description">
+        Kleine Einblicke in realisierte Projekte
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card" *ngFor="let project of projects">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.alt" loading="lazy" />
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-tags">
+            <span class="project-tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
