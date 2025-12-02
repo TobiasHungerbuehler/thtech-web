@@ -1,8 +1,85 @@
 <section class="hero" id="start">
-    <div class="hero-video" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="metadata">
-            <source src="assets/video/AdobeStock_655627148_Video_HD_Preview.mov" type="video/mp4" />
-        </video>
+    <div class="hero-polygons" aria-hidden="true">
+        <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="poly1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.7" />
+                    <stop offset="100%" stop-color="#0891b2" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="poly2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.65" />
+                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="poly3" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.6" />
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.35" />
+                </linearGradient>
+                <linearGradient id="poly4" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.65" />
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.45" />
+                </linearGradient>
+                <linearGradient id="poly5" x1="100%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#1d4ed8" stop-opacity="0.6" />
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="polyBright1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.85" />
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.65" />
+                </linearGradient>
+                <linearGradient id="polyBright2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.75" />
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.6" />
+                </linearGradient>
+                <linearGradient id="polyBright3" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.7" />
+                </linearGradient>
+                <linearGradient id="polyMid" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.65" />
+                    <stop offset="100%" stop-color="#0891b2" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="polyDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.65" />
+                    <stop offset="100%" stop-color="#1e40af" stop-opacity="0.5" />
+                </linearGradient>
+            </defs>
+
+            <polygon class="poly poly-left" points="0,400 200,300 150,500" fill="url(#poly1)" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-left" points="150,500 200,300 350,450" fill="url(#polyDark)" stroke="#1e40af" stroke-width="2" stroke-opacity="0.5" />
+            <polygon class="poly poly-left" points="200,300 350,200 350,450" fill="url(#poly3)" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-left" points="0,600 150,500 100,750" fill="url(#poly4)" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.7" />
+            <polygon class="poly poly-left" points="100,750 150,500 300,700" fill="url(#poly1)" stroke="#0891b2" stroke-width="2" stroke-opacity="0.6" />
+
+            <polygon class="poly poly-center" points="700,200 850,150 900,350" fill="url(#poly2)" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-center" points="900,350 850,150 1050,300" fill="url(#poly3)" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.7" />
+            <polygon class="poly poly-center" points="750,400 900,350 850,550" fill="url(#polyDark)" stroke="#2563eb" stroke-width="2" stroke-opacity="0.5" />
+
+            <polygon class="poly poly-right" points="1500,300 1650,250 1700,450" fill="url(#poly1)" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-right" points="1700,450 1650,250 1850,400" fill="url(#poly4)" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.7" />
+            <polygon class="poly poly-right" points="1850,400 1650,250 1920,300" fill="url(#polyDark)" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.5" />
+            <polygon class="poly poly-right" points="1600,500 1700,450 1750,650" fill="url(#poly3)" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-right" points="1750,650 1700,450 1920,600" fill="url(#poly2)" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+
+            <polygon class="poly poly-bright" points="1200,150 1400,100 1350,300" fill="url(#polyBright1)" stroke="#22d3ee" stroke-width="2.5" stroke-opacity="0.9" />
+            <polygon class="poly poly-bright" points="1350,300 1400,100 1550,250" fill="url(#polyBright3)" stroke="#22d3ee" stroke-width="2.5" stroke-opacity="1" />
+            <polygon class="poly poly-bright" points="1550,250 1400,100 1700,150" fill="url(#polyBright2)" stroke="#60a5fa" stroke-width="2.5" stroke-opacity="0.8" />
+            <polygon class="poly poly-bright" points="1300,200 1350,300 1450,250" fill="url(#polyBright1)" stroke="#22d3ee" stroke-width="2" stroke-opacity="0.9" />
+            <polygon class="poly poly-bright" points="1450,250 1350,300 1550,350" fill="url(#polyBright2)" stroke="#60a5fa" stroke-width="2" stroke-opacity="0.8" />
+
+            <polygon class="poly poly-mid" points="100,100 220,80 170,220" fill="url(#polyMid)" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-mid" points="880,80 1000,60 940,200" fill="url(#poly3)" stroke="#06b6d4" stroke-width="2" stroke-opacity="0.6" />
+            <polygon class="poly poly-mid" points="250,600 400,550 350,750" fill="url(#polyMid)" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.7" />
+            <polygon class="poly poly-mid" points="1100,500 1250,450 1200,650" fill="url(#polyDark)" stroke="#2563eb" stroke-width="2" stroke-opacity="0.5" />
+            <polygon class="poly poly-mid" points="1400,600 1550,550 1500,750" fill="url(#polyMid)" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.6" />
+
+            <polygon class="poly poly-top" points="600,150 700,120 650,250" fill="url(#poly1)" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.6" />
+            <polygon class="poly poly-top" points="650,250 700,120 750,220" fill="url(#poly3)" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.5" />
+            <!--
+            <line class="poly-line" x1="200" y1="300" x2="350" y2="200" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4" />
+            <line class="poly-line" x1="1400" y1="100" x2="1550" y2="250" stroke="#22d3ee" stroke-width="1.5" stroke-opacity="0.6" />
+            <line class="poly-line" x1="1350" y1="300" x2="1550" y2="350" stroke="#60a5fa" stroke-width="1" stroke-opacity="0.5" />
+            <line class="poly-line" x1="850" y1="750" x2="1000" y2="720" stroke="#22d3ee" stroke-width="1.5" stroke-opacity="0.6" /> -->
+        </svg>
     </div>
 
     <div class="mesh-gradient"></div>

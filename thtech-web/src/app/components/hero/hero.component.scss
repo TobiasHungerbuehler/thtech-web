@@ -6,35 +6,157 @@
     background-color: #020617;
 }
 
-.hero-video {
+.hero-polygons {
     position: absolute;
     inset: 0;
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
-    background: radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.12), transparent 45%), radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.12), transparent 45%);
+    opacity: 0.45;
 }
 
-.hero-video video {
+.hero-polygons svg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transform: scale(1.02);
-    filter: saturate(1.05);
-    opacity: 0.2;
 }
 
-.hero-video::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    //filter
-    // background: linear-gradient(180deg, rgba(2, 6, 23, 0.65) 0%, rgba(2, 6, 23, 0.55) 40%, rgba(2, 6, 23, 0.8) 100%);
+.poly {
+    opacity: 0;
+    animation: polyFade 1.4s ease forwards;
+    transform-origin: center;
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.12));
 }
 
-.hero-video video,
-.hero-video::after {
-    display: block;
+.poly-left {
+    animation-delay: 0.2s;
+    animation-name: polyLeft;
+}
+
+.poly-center {
+    animation-delay: 0.35s;
+    animation-name: polyCenter;
+}
+
+.poly-right {
+    animation-delay: 0.3s;
+    animation-name: polyRight;
+}
+
+.poly-bright {
+    animation-delay: 0.5s;
+    animation-name: polyGlow;
+    filter: drop-shadow(0 0 16px rgba(34, 211, 238, 0.3));
+}
+
+.poly-mid {
+    animation-delay: 0.65s;
+    animation-name: polyFloat;
+}
+
+.poly-top {
+    animation-delay: 0.8s;
+    animation-name: polyFloat;
+}
+
+.poly-line {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: lineDraw 1.8s ease forwards;
+}
+
+.poly-line:nth-of-type(1) {
+    animation-delay: 1.1s;
+}
+
+.poly-line:nth-of-type(2) {
+    animation-delay: 1.2s;
+}
+
+.poly-line:nth-of-type(3) {
+    animation-delay: 1.3s;
+}
+
+.poly-line:nth-of-type(4) {
+    animation-delay: 1.4s;
+}
+
+@keyframes polyFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes polyLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px) translateY(10px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}
+
+@keyframes polyRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px) translateY(6px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+    }
+}
+
+@keyframes polyCenter {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes polyGlow {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(12px);
+        filter: drop-shadow(0 0 0 rgba(34, 211, 238, 0.35));
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.02);
+        filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.45));
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.32));
+    }
+}
+
+@keyframes polyFloat {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes lineDraw {
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
 .mesh-gradient {
