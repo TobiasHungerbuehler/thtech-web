@@ -1,20 +1,21 @@
 <section id="arbeitsweise" class="process">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Meine Arbeitsweise</h2>
-      <p class="section-description">In vier klaren Schritten von der Idee zur betreuten Lösung.</p>
-    </div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Meine Arbeitsweise</h2>
+            <p class="section-description">Der direkte Weg zur Lösung.</p>
+        </div>
 
-    <div class="process-grid">
-      <article class="process-step" *ngFor="let step of steps; let i = index">
-        <div class="step-badge">
-          <span>{{ i + 1 }}</span>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-step" *ngFor="let step of steps; let i = index">
+                <div class="step-marker">
+                    <div class="step-circle">{{ i + 1 }}</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="step-title">{{ step.title }}</h3>
+                    <p class="step-description">{{ step.description }}</p>
+                </div>
+            </div>
         </div>
-        <div class="step-body">
-          <h3 class="step-title">{{ step.title }}</h3>
-          <p class="step-description">{{ step.description }}</p>
-        </div>
-      </article>
     </div>
-  </div>
 </section>

@@ -1,79 +1,136 @@
+.process {
+    padding: 8rem 0;
+    background-color: #0a0f1e;
+    overflow: hidden; // Damit Linien nicht rausstehen
+}
+
 .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 }
 
 .section-title {
     color: #ffffff;
-    margin-bottom: 1rem;
     font-size: clamp(2rem, 4vw, 2.25rem);
+    margin-bottom: 0.5rem;
 }
 
 .section-description {
     color: #9ca3af;
-    font-size: 1.05rem;
-    max-width: 42rem;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.process {
-    padding: 6rem 0;
+// Die horizontale Linie im Hintergrund
+.timeline-line {
+    position: absolute;
+    top: 2rem; // Mitte des Kreises (4rem höhe / 2)
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
 }
 
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
+.timeline-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1; // Alle Schritte gleich breit
+    padding: 0 1rem;
+
+    &:hover {
+        .step-circle {
+            border-color: #06b6d4; // Cyan
+            background: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .step-title {
+            color: #ffffff;
+        }
+    }
 }
 
-.process-step {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background-color: rgba(255, 255, 255, 0.04);
-    transition: border-color 0.25s, transform 0.25s;
+.step-marker {
+    margin-bottom: 1.5rem;
+    background-color: #0a0f1e; // Verdeckt die Linie hinter dem Kreis
+    padding: 0 0.5rem;
 }
 
-.process-step:hover {
-    border-color: rgba(6, 182, 212, 0.35);
-    transform: translateY(-2px);
-}
-
-.step-badge {
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 0.75rem;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, #06b6d4, #3b82f6);
-    color: #ffffff;
+.step-circle {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
     font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 10px 20px rgba(6, 182, 212, 0.24);
+    font-size: 1.25rem;
+    background-color: #0a0f1e;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .step-title {
-    margin: 0 0 0.35rem;
-    color: #ffffff;
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    transition: color 0.3s;
 }
 
 .step-description {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
     margin: 0;
-    color: #9ca3af;
-    line-height: 1.7;
+    max-width: 200px; // Damit der Text nicht zu breit wird
 }
 
-@media (max-width: 640px) {
-    .process-step {
-        grid-template-columns: 1fr;
-        align-items: center;
+// Mobile Anpassung: Vertikale Timeline
+@media (max-width: 768px) {
+    .timeline-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+        padding-left: 2rem;
     }
 
-    .step-badge {
-        width: 2.5rem;
-        height: 2.5rem;
+    .timeline-line {
+        top: 0;
+        bottom: 0;
+        left: 4rem; // Linie vertikal links
+        width: 2px;
+        height: auto;
+        right: auto;
+    }
+
+    .timeline-step {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        padding: 0;
+        width: 100%;
+    }
+
+    .step-marker {
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+        padding: 0.5rem 0; // Padding vertikal um Linie zu verdecken
+    }
+
+    .step-description {
+        max-width: 100%;
     }
 }

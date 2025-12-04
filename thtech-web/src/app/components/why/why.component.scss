@@ -1,83 +1,100 @@
+.why {
+    padding: 6rem 0;
+    background-color: #0a0f1e; // Passt zum Dark Theme
+}
+
 .section-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
+    text-align: left; // Wirkt technischer als zentriert
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
 }
 
 .section-title {
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: clamp(2rem, 4vw, 2.25rem);
+    font-weight: 600;
 }
 
 .section-description {
     color: #9ca3af;
-    font-size: 1.05rem;
-    max-width: 44rem;
-    margin: 0 auto;
-    line-height: 1.8;
+    font-size: 1.125rem;
+    max-width: 42rem;
+    margin: 0;
 }
 
-.why {
-    padding: 6rem 0;
+.spec-sheet {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.reasons-grid {
+.spec-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr 1.5fr; // Links Titel/Icon, Rechts Text
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.02);
+
+        .spec-icon svg {
+            color: #22d3ee; // Cyan Highlight bei Hover
+            transform: scale(1.1);
+        }
+    }
+}
+
+.spec-header {
+    display: flex;
+    align-items: center;
     gap: 1.5rem;
 }
 
-.reason-card {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
-    padding: 1.75rem;
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1rem;
-    transition: all 0.3s;
+.spec-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+        color: #64748b; // Gedämpftes Blau-Grau im Normalzustand
+        transition: all 0.3s ease;
+    }
 }
 
-.reason-card:hover {
-    border-color: rgba(6, 182, 212, 0.35);
-    background-color: rgba(255, 255, 255, 0.07);
-}
-
-.reason-icon {
-    width: 3.25rem;
-    height: 3.25rem;
-    border-radius: 0.75rem;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(59, 130, 246, 0.2));
-    box-shadow: 0 10px 24px rgba(6, 182, 212, 0.18);
-}
-
-.reason-icon svg {
-    width: 1.6rem;
-    height: 1.6rem;
-    color: #e0f2fe;
-}
-
-.reason-title {
-    margin: 0 0 0.5rem;
-    color: #ffffff;
-}
-
-.reason-description {
+.spec-title {
+    color: #e2e8f0;
+    font-size: 1.25rem;
+    font-weight: 600;
     margin: 0;
-    color: #9ca3af;
-    line-height: 1.7;
 }
 
-@media (max-width: 640px) {
-    .reason-card {
-        grid-template-columns: 1fr;
-        align-items: center;
+.spec-content {
+    display: flex;
+    align-items: center;
+}
+
+.spec-description {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .spec-row {
+        grid-template-columns: 1fr; // Untereinander auf Mobile
+        gap: 1rem;
     }
 
-    .reason-icon {
-        width: 3rem;
-        height: 3rem;
+    .spec-header {
+        margin-bottom: 0.5rem;
     }
 }
