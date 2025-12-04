@@ -1,0 +1,51 @@
+<section id="kontakt" class="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <h2 class="section-title">Bereit für ein Projekt?</h2>
+      <p class="section-description">
+        Lass uns kurz besprechen, was du brauchst – und ob ich dir die passende Lösung bauen kann.
+      </p>
+      <div class="contact-meta">
+        <div class="meta-item">
+          <span class="meta-label">E-Mail</span>
+          <a href="mailto:kontakt&#64;th-tech.ch" class="meta-value">kontakt&#64;th-tech.ch</a>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Standort</span>
+          <span class="meta-value">Zürich, Schweiz</span>
+        </div>
+      </div>
+      <a class="btn-primary" href="mailto:kontakt&#64;th-tech.ch">Projekt besprechen</a>
+    </div>
+
+    <div class="contact-card">
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-row">
+          <label for="name">Name *</label>
+          <input id="name" type="text" formControlName="name" placeholder="Dein Name" />
+          <p class="error" *ngIf="hasError('name', 'required')">Bitte Namen eingeben.</p>
+        </div>
+
+        <div class="form-row">
+          <label for="email">E-Mail *</label>
+          <input id="email" type="email" formControlName="email" placeholder="name&#64;firma.ch" />
+          <p class="error" *ngIf="hasError('email', 'required')">Bitte E-Mail eingeben.</p>
+          <p class="error" *ngIf="hasError('email', 'email')">Bitte eine gültige E-Mail eingeben.</p>
+        </div>
+
+        <div class="form-row">
+          <label for="company">Firma (optional)</label>
+          <input id="company" type="text" formControlName="company" placeholder="Firmenname" />
+        </div>
+
+        <div class="form-row">
+          <label for="message">Nachricht *</label>
+          <textarea id="message" rows="4" formControlName="message" placeholder="Worum geht es?"></textarea>
+          <p class="error" *ngIf="hasError('message', 'required')">Bitte eine Nachricht eingeben.</p>
+        </div>
+
+        <button class="btn-primary" type="submit" [disabled]="form.invalid">Senden</button>
+      </form>
+    </div>
+  </div>
+</section>

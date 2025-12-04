@@ -1,0 +1,112 @@
+.section-title {
+    color: #ffffff;
+    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 4vw, 2.25rem);
+}
+
+.section-description {
+    color: #9ca3af;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.contact {
+    padding: 6rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.contact-copy .section-title {
+    margin-bottom: 1rem;
+}
+
+.contact-copy .section-description {
+    margin-bottom: 1.5rem;
+}
+
+.contact-meta {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.meta-label {
+    color: #9ca3af;
+    min-width: 4rem;
+}
+
+.meta-value {
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+.contact-card {
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+label {
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #e5e7eb;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.error {
+    margin: 0;
+    color: #fca5a5;
+    font-size: 0.9rem;
+}
+
+button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
