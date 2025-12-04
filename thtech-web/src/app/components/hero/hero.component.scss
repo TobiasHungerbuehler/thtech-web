@@ -2,7 +2,7 @@
     position: relative;
     padding: 8rem 0 0;
     overflow: hidden;
-    min-height: 60vh;
+    min-height: 70vh;
     background-color: #020617;
     --hero-bg-image: none;
 }
@@ -94,6 +94,7 @@
     align-items: end;
     position: relative;
     z-index: 10;
+    border: solid;
 }
 
 .hero-text {
@@ -138,101 +139,111 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    border: solid red;
 }
 
 .hero-portrait img {
-    width: 400px;
+    width: 440px;
     max-width: 100%;
     height: auto;
     position: relative;
+    border: solid red;
     z-index: 10;
     filter: drop-shadow(0 20px 40px rgba(6, 182, 212, 0.15)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 
 /* NEU: Bottom Layer mit Wave und Ticker */
+/* --- Bottom Layer mit Wave und Ticker --- */
 .hero-bottom-layer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 20; /* Wichtig: Muss höher sein als das Bild (z-index: 10) */
-    pointer-events: none; /* Klicks gehen durch */
-    border: 1px solid red;
-    min-height: 120px;
+    z-index: 20; /* Liegt über dem Bild */
+    pointer-events: none; /* Klicks gehen durch den leeren Bereich durch */
+
+    /* Wichtig: Wir stapeln die Elemente jetzt flexibel untereinander */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 /* Die Welle */
-/* Die Welle */
 .wave-shape {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    overflow: hidden;
-    line-height: 0;
+    line-height: 0; /* Verhindert ungewollte Abstände */
 
-    /* ÄNDERUNG: Statt rotate(180deg) nutzen wir scaleY(-1).
-       Das spiegelt die Welle horizontal, sodass sie jetzt links tief und rechts hoch ist. */
+    /* Gespiegelt: Rechts höher, links tiefer */
     transform: scaleY(-1);
+
+    /* Zieht die Welle 1px über den Ticker, um weiße Blitzer zu vermeiden */
+    margin-bottom: -1px;
 }
 
 .wave-shape svg {
-    position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 80px; /* Höhe der Welle anpassen */
+    height: 80px; /* Höhe der Welle */
 }
 
 .wave-shape .shape-fill {
-    fill: #0a0f1e; /* Exakt deine Hintergrundfarbe, damit es nahtlos aussieht */
-    // Falls du den Ticker in einem anderen Schwarzton willst, ändere dies hier.
+    fill: #0a0f1e; /* Hintergrundfarbe */
 }
 
 /* Der Tech Ticker */
 .tech-ticker {
-    background-color: #0a0f1e; /* Hintergrundfarbe des Tickers */
-    bottom: -100px;
+    background-color: #0a0f1e; /* Gleiche Farbe wie Welle/Hintergrund */
     width: 100%;
     overflow: hidden;
     position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Dezente Linie zur Trennung */
+
+    /* Hier der gewünschte Abstand nach oben (zwischen Wave und Icons) */
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+
+    /* Reaktiviert Maus-Events für den Ticker (Hover-Effekte) */
+    pointer-events: auto;
 
     /* Maske für weiches Ausblenden links und rechts */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    // mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .ticker-track {
     display: flex;
-    gap: 4rem; /* Abstand zwischen den Icons */
+    gap: 5rem; /* Etwas mehr Luft zwischen den Icons */
     width: max-content;
-    animation: scroll 30s linear infinite; /* Geschwindigkeit hier anpassen */
+    animation: scroll 40s linear infinite; /* Etwas langsamer für mehr Ruhe */
 }
 
 .ticker-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    opacity: 0.6; /* Leicht transparent, damit es nicht zu sehr ablenkt */
-    transition: opacity 0.3s;
+    opacity: 0.5; /* Dezent im Hintergrund */
+    transition: all 0.3s ease;
+    cursor: default;
 
     img {
-        width: 1.5rem; /* Icon Größe */
-        height: 1.5rem;
-        filter: grayscale(100%); /* Schwarz-Weiß für cleanen Look */
+        width: 1.75rem;
+        height: 1.75rem;
+        filter: grayscale(100%);
         transition: filter 0.3s;
     }
 
     span {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         font-weight: 500;
-        color: #9ca3af; /* Dein Grau-Ton */
+        color: #9ca3af;
         white-space: nowrap;
     }
 
     &:hover {
         opacity: 1;
+        transform: translateY(-2px); /* Kleiner "Lift"-Effekt */
+
         img {
-            filter: grayscale(0%); /* Farbe bei Hover */
+            filter: grayscale(0%);
         }
         span {
             color: #ffffff;
@@ -240,22 +251,23 @@
     }
 }
 
-/* Die endlose Animation */
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Bewegt sich um die Hälfte (da wir den Inhalt dupliziert haben) */
+        transform: translateX(-50%);
     }
 }
 
-/* Anpassung Portrait: Muss ganz unten am Container kleben, damit die Welle es verdeckt */
+/* Portrait-Anpassung */
 .hero-portrait {
-    align-items: flex-end; /* Wichtig */
+    align-items: flex-end;
+    /* Da der Ticker jetzt Platz einnimmt, schieben wir das Bild relativ zur Welle */
+    z-index: 10;
 
     img {
-        /* Ggf. margin-bottom negativ anpassen, falls die Welle zu hoch/tief sitzt */
-        margin-bottom: -10px;
+        /* Feinjustierung, damit das Bild schön in die Welle eintaucht */
+        margin-bottom: -20px;
     }
 }
