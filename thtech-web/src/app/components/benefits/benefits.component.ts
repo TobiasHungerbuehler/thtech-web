@@ -18,12 +18,12 @@ export class BenefitsComponent {
   benefits: Benefit[] = [
     {
       title: 'Individuelle Software für KMU',
-      description: 'Massgeschneiderte Lösungen, die exakt zu deinen Geschäftsprozessen passen. Keine überladenen Standardprodukte.',
+      description: 'Massgeschneiderte Lösungen, die exakt zu deinen Geschäftsprozessen passen. Keine überladenen Standardprodukte – nur das, was du brauchst.',
       icon: 'arrow',
     },
     {
       title: 'Hosting & Betreuung aus einer Hand',
-      description: 'Von der Entwicklung bis zum Betrieb – alles bei einem Ansprechpartner. Zuverlässig und unkompliziert.',
+      description: 'Von der Entwicklung bis zum Betrieb – alles bei einem Ansprechpartner. Stabil, zuverlässig, unkompliziert.',
       icon: 'stack',
     },
     {
