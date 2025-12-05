@@ -162,7 +162,7 @@
     width: 100%;
     z-index: 30; /* Unter Text (40), über Portrait (20) */
     pointer-events: auto; /* Ticker soll bedienbar sein (Hover) */
-    border: solid;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
