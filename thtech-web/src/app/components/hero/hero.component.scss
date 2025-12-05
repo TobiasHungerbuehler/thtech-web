@@ -1,10 +1,8 @@
 .hero {
     position: relative;
-    padding: 8rem 0 0;
     overflow: hidden;
     height: 100vh;
     background-color: #020617;
-    --hero-bg-image: none;
     border: solid;
 }
 
@@ -89,18 +87,22 @@
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    align-items: end;
     position: relative;
-    z-index: 10;
+    z-index: 30;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15vh;
 }
 
 .hero-text {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex: 1 1 360px;
+    min-width: 0;
+    max-width: 640px;
 }
 
 .hero-badge {
@@ -134,55 +136,33 @@
     flex-wrap: wrap;
 }
 
-/* 1. Der Content (Text & Buttons) liegt ganz oben */
-.hero-content {
-    position: relative;
-    z-index: 30; /* Höchster Index: Muss klickbar bleiben */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 3rem;
-    align-items: center; /* Zentriert Text vertikal */
-    min-height: 60vh; /* Gibt dem Hero Platz */
-}
-
-/* 2. Das Portrait ("Das Sandwich-Fleisch") */
 .hero-portrait {
     position: relative;
-    z-index: 10; /* Liegt ÜBER dem Hintergrund, aber UNTER der Welle */
+    z-index: 20; /* Liegt ÜBER dem Hintergrund, aber UNTER der Welle */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end; /* Bild klebt unten */
-    height: 100%;
+    // flex: 0 1 420px;
+    height: 800px;
     pointer-events: none; /* Damit man nicht versehentlich das Bild statt Buttons klickt */
 }
 
 .hero-portrait img {
-    width: 450px; /* Etwas größer für Präsenz */
-    max-width: 100%;
-    height: auto;
+    bottom: 50px;
+    height: 100%;
+    width: auto;
     display: block;
-
-    /* WICHTIG: Das Bild wird nach unten geschoben, damit es "hinter" den Ticker rutscht */
-    margin-bottom: -40px;
-
-    /* Filter & Schatten */
-    // filter: drop-shadow(0 20px 40px rgba(6, 182, 212, 0.15));
-
-    /* DER SICHERHEITS-TRICK: */
-    /* Fadet das Bild unten weich aus. Falls die Welle verrutscht, sieht man keine harte Kante. */
-    // -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    // mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-/* 3. Die Welle & Ticker ("Das untere Brot") */
 .hero-bottom-layer {
     position: absolute;
     bottom: 0;
+    height: 35%;
     left: 0;
     width: 100%;
-    z-index: 30; /* WICHTIG: Höher als Portrait (10), tiefer als Text (30) */
+    z-index: 30; /* Unter Text (40), über Portrait (20) */
     pointer-events: auto; /* Ticker soll bedienbar sein (Hover) */
-
+    border: solid;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -194,6 +174,7 @@
     width: 100%;
     line-height: 0;
     margin-bottom: -2px; /* Fix für feine weiße Linien beim Rendering */
+    margin-top: calc(var(--wave-overlap) * -1); /* Wave greift hinter das Portrait */
 
     /* Spiegelung & Skalierung für mehr Höhe rechts */
     transform: scaleY(-1);
@@ -204,7 +185,7 @@
     width: calc(100% + 1.3px);
 
     /* HIER DIE ÄNDERUNG FÜR MEHR HÖHE: */
-    height: 150px; /* War vorher 80px. Das gibt mehr Deckung rechts. */
+    height: 100px;
 }
 
 .wave-shape .shape-fill {
@@ -216,14 +197,11 @@
 .tech-ticker {
     background-color: #0a0f1e;
     width: 100%;
-    padding-top: 1rem; /* Abstand Welle zu Icons */
+    padding-top: 7rem; /* Abstand Welle zu Icons */
     padding-bottom: 2rem; /* Abstand Icons zu Seitenende */
     position: relative;
     z-index: 21; /* Sicherstellen, dass er solide ist */
-    border: solid;
-
-    
-
+    height: 100%;
     /* Weiches Ausblenden an den Rändern */
     // mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
@@ -281,10 +259,18 @@
 
 /* --- Mobile Anpassungen (Responsive) --- */
 @media (max-width: 900px) {
+    .hero {
+        height: auto;
+        --wave-height: clamp(80px, 22vw, 130px);
+        --wave-overlap: calc(var(--wave-height) * 0.7);
+    }
+
     .hero-content {
-        grid-template-columns: 1fr; /* Alles untereinander */
-        padding-bottom: 120px; /* Platz für das Bild unten reservieren */
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
         text-align: center;
+        padding-bottom: calc(var(--wave-height) + 1rem);
     }
 
     .hero-buttons {
@@ -292,17 +278,20 @@
     }
 
     .hero-portrait {
-        /* Auf Mobile: Bild hinter den Ticker schieben oder ausblenden */
-        position: absolute;
-        bottom: 80px; /* Sitzt auf dem Ticker auf */
-        left: 0;
-        right: 0;
-        z-index: 5; /* Ganz nach hinten auf Mobile */
-        opacity: 0.4; /* Dezent im Hintergrund, damit Text lesbar bleibt */
-        transform: scale(0.9); /* Etwas kleiner */
+        order: 2;
+        position: relative;
+        opacity: 1;
+        transform: none;
+        flex: 0 1 auto;
+        margin-top: 1rem;
     }
 
-    .wave-shape svg {
-        height: 60px; /* Auf Mobile Welle etwas flacher */
+    .hero-portrait img {
+        width: 320px;
+        margin-bottom: -56px;
+    }
+
+    .wave-shape {
+        margin-top: calc(var(--wave-overlap) * -1);
     }
 }
