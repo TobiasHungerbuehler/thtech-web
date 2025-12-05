@@ -2,9 +2,10 @@
     position: relative;
     padding: 8rem 0 0;
     overflow: hidden;
-    min-height: 70vh;
+    height: 100vh;
     background-color: #020617;
     --hero-bg-image: none;
+    border: solid;
 }
 
 .hero-backdrop {
@@ -219,9 +220,12 @@
     padding-bottom: 2rem; /* Abstand Icons zu Seitenende */
     position: relative;
     z-index: 21; /* Sicherstellen, dass er solide ist */
+    border: solid;
+
+    
 
     /* Weiches Ausblenden an den Rändern */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    // mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .ticker-track {
