@@ -170,32 +170,31 @@
 
 /* Die Welle selbst */
 .wave-shape {
-    position: relative;
+    // position: relative;
     width: 100%;
-    line-height: 0;
-    margin-bottom: -2px; /* Fix für feine weiße Linien beim Rendering */
-    margin-top: calc(var(--wave-overlap) * -1); /* Wave greift hinter das Portrait */
-
-    /* Spiegelung & Skalierung für mehr Höhe rechts */
-    transform: scaleY(-1);
+    height: 250px;
+    margin-bottom: 240px;
+    // line-height: 0;
+    // margin-bottom: -2px; /* Fix für feine weiße Linien beim Rendering */
+    // margin-top: calc(var(--wave-overlap) * -1); /* Wave greift hinter das Portrait */
 }
 
-.wave-shape svg {
-    display: block;
-    width: calc(100% + 1.3px);
+.wave-shape img {
+    width: 100%;
 
     /* HIER DIE ÄNDERUNG FÜR MEHR HÖHE: */
-    height: 100px;
+    // height: 200px;
+    // transform: scale(-1);
 }
 
-.wave-shape .shape-fill {
-    fill: #0a0f1e; /* Exakte Hintergrundfarbe */
-}
+// .wave-shape .shape-fill {
+//     fill: #0a0f1e; /* Exakte Hintergrundfarbe */
+// }
 
 /* Der Tech Ticker */
 /* Der Ticker Container */
 .tech-ticker {
-    background-color: #0a0f1e;
+    // background-color: #0a0f1e;
     width: 100%;
     padding-top: 7rem; /* Abstand Welle zu Icons */
     padding-bottom: 2rem; /* Abstand Icons zu Seitenende */
