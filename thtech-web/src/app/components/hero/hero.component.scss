@@ -21,8 +21,8 @@
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background-color: #020617;
-    background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(6, 182, 212, 0.08)), var(--hero-bg-image);
+    // background-color: #020617;
+    // background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(6, 182, 212, 0.08)), var(--hero-bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -154,64 +154,75 @@
     display: block;
 }
 
+/* --- Bottom Layer Container --- */
 .hero-bottom-layer {
     position: absolute;
     bottom: 0;
-    height: 35%;
     left: 0;
     width: 100%;
-    z-index: 30; /* Unter Text (40), über Portrait (20) */
-    pointer-events: auto; /* Ticker soll bedienbar sein (Hover) */
+    z-index: 30; /* Über Portrait (10), unter Text (30) */
+    pointer-events: none;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    /* Keine Flexbox mehr nötig, wir positionieren absolut */
+    display: block;
+    height: auto;
+    color: #17203c;
 }
 
-/* Die Welle selbst */
+/* Die massive Welle */
 .wave-shape {
     position: relative;
     width: 100%;
     line-height: 0;
-    margin-bottom: -2px; /* Fix für feine weiße Linien beim Rendering */
-    margin-top: calc(var(--wave-overlap) * -1); /* Wave greift hinter das Portrait */
+    margin-bottom: -1px;
 
-    /* Spiegelung & Skalierung für mehr Höhe rechts */
-    transform: scaleY(-1);
+    /* Optional: Ein sehr weicher Schatten nach oben, um die Welle vom Hintergrund abzuheben */
+    filter: drop-shadow(0 -10px 30px rgba(255, 255, 255, 0.1));
+    // filter: drop-shadow(0 -10px 30px rgba(12, 176, 216, 0.1));
 }
 
 .wave-shape svg {
     display: block;
-    width: calc(100% + 1.3px);
+    width: 100%;
+    height: auto;
 
-    /* HIER DIE ÄNDERUNG FÜR MEHR HÖHE: */
-    height: 100px;
+    /* Das sorgt für die Masse: Mindesthöhe auf Desktop */
+    // min-height: 520px;
+
+    /* Auf Mobile darf sie kleiner sein, aber skalieren */
+    max-height: 25vh;
 }
 
 .wave-shape .shape-fill {
     fill: #0a0f1e; /* Exakte Hintergrundfarbe */
 }
 
-/* Der Tech Ticker */
-/* Der Ticker Container */
+/* Der Ticker - jetzt "in" der Welle platziert */
 .tech-ticker {
-    background-color: #0a0f1e;
+    position: absolute;
+    bottom: 0; /* Klebt ganz unten */
+    left: 0;
     width: 100%;
-    padding-top: 7rem; /* Abstand Welle zu Icons */
-    padding-bottom: 2rem; /* Abstand Icons zu Seitenende */
-    position: relative;
-    z-index: 21; /* Sicherstellen, dass er solide ist */
-    height: 100%;
-    /* Weiches Ausblenden an den Rändern */
-    // mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+    /* Hintergrund ist transparent, da die Welle den Hintergrund liefert! */
+    background-color: transparent;
+
+    padding-bottom: 2.5rem; /* Abstand vom Boden */
+    z-index: 22;
+    pointer-events: auto;
+
+    /* Maske für Ausblenden links/rechts */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
+/* Animation und Items bleiben gleich... */
 .ticker-track {
     display: flex;
-    gap: 5rem; /* Etwas mehr Luft zwischen den Icons */
+    gap: 5rem;
     width: max-content;
-    animation: scroll 40s linear infinite; /* Etwas langsamer für mehr Ruhe */
+    animation: scroll 45s linear infinite; /* Etwas langsamer */
 }
+/* ... Rest des Ticker CSS (ticker-item etc.) bleibt bestehen ... */
 
 .ticker-item {
     display: flex;
