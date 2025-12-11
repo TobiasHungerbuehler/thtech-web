@@ -1,108 +1,132 @@
-.projects {
-  padding: 6rem 0;
-  background-color: rgba(255, 255, 255, 0.02);
+.projects-section {
+    padding: 8rem 0;
+    background-color: #020617; /* Dein Dark Mode Background */
 }
 
 .section-header {
-  text-align: center;
-  margin-bottom: 4rem;
+    text-align: center;
+    margin-bottom: 5rem;
+
+    .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(34, 211, 238, 0.1);
+        color: #22d3ee;
+        border-radius: 99px;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(34, 211, 238, 0.2);
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: white;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+        color: #94a3b8;
+        font-size: 1.125rem;
+        line-height: 1.6;
+    }
 }
 
-.section-title {
-  color: #ffffff;
-  margin-bottom: 1rem;
-  font-size: clamp(2rem, 4vw, 2.25rem);
+.cases-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-.section-description {
-  color: #9ca3af;
-  font-size: 1.125rem;
-  max-width: 42rem;
-  margin: 0 auto;
+.case-card {
+    background: rgba(30, 41, 59, 0.3); /* Slate-800 mit Transparenz */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 3rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        border-color: rgba(34, 211, 238, 0.3);
+        background: rgba(30, 41, 59, 0.5);
+    }
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+.case-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: monospace;
+
+    .case-id {
+        color: #3b82f6; /* Blau */
+        font-weight: bold;
+    }
+
+    .case-category {
+        color: #64748b;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 1px;
+    }
 }
 
-.project-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  overflow: hidden;
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.case-title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
 }
 
-.project-card:hover {
-  border-color: rgba(6, 182, 212, 0.3);
-  transform: translateY(-8px);
+/* Das 3-Spalten Grid für Problem -> Lösung -> Ergebnis */
+.case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+
+    /* Trennlinien zwischen den Spalten */
+    > div:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        padding-right: 2rem;
+    }
 }
 
-.project-image {
-  position: relative;
-  height: 12rem;
-  background: linear-gradient(to bottom right, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2));
-  overflow: hidden;
+.case-part {
+    h4 {
+        font-size: 1.1rem;
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .icon {
+            font-size: 1.2rem;
+        }
+    }
+
+    p {
+        color: #94a3b8;
+        line-height: 1.7;
+        font-size: 1rem;
+    }
 }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-  transition: all 0.3s;
-}
+/* Mobile Anpassung */
+@media (max-width: 900px) {
+    .case-card {
+        padding: 1.5rem;
+    }
 
-.project-card:hover .project-image img {
-  opacity: 1;
-  transform: scale(1.05);
-}
+    .case-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
 
-.project-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, #0a0f1e, transparent);
-  opacity: 0.6;
-}
-
-.project-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
-}
-
-.project-title {
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.project-description {
-  color: #9ca3af;
-  line-height: 1.75;
-  flex: 1;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.project-tag {
-  padding: 0.25rem 0.75rem;
-  background-color: rgba(6, 182, 212, 0.1);
-  border: 1px solid rgba(6, 182, 212, 0.2);
-  color: #22d3ee;
-  font-size: 0.875rem;
-  border-radius: 9999px;
+        > div:not(:last-child) {
+            border-right: none;
+            padding-right: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2rem;
+        }
+    }
 }

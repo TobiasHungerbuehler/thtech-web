@@ -1,25 +1,40 @@
-<section id="projekte" class="projects">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Referenzen</h2>
-      <p class="section-description">
-        Kleine Einblicke in realisierte Projekte
-      </p>
-    </div>
+<section id="projekte" class="projects-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Aus der Praxis</span>
+            <h2 class="section-title">Geschichten statt Features.</h2>
+            <p class="section-subtitle">
+                So sieht es aus, wenn Software echte Probleme löst. <br />
+                Vielleicht erkennen Sie sich in einem dieser Fälle wieder?
+            </p>
+        </div>
 
-    <div class="projects-grid">
-      <article class="project-card" *ngFor="let project of projects">
-        <div class="project-image">
-          <img [src]="project.image" [alt]="project.alt" loading="lazy" />
+        <div class="cases-wrapper">
+            <article class="case-card" *ngFor="let case of cases">
+                <div class="case-meta">
+                    <span class="case-id">#{{ case.id }}</span>
+                    <span class="case-category">{{ case.category }}</span>
+                </div>
+
+                <h3 class="case-title">{{ case.title }}</h3>
+
+                <div class="case-grid">
+                    <div class="case-part situation">
+                        <h4><span class="icon">🔥</span> Das Problem</h4>
+                        <p>{{ case.situation }}</p>
+                    </div>
+
+                    <div class="case-part solution">
+                        <h4><span class="icon">🛠️</span> Die Lösung</h4>
+                        <p>{{ case.solution }}</p>
+                    </div>
+
+                    <div class="case-part result">
+                        <h4><span class="icon">✅</span> Das Ergebnis</h4>
+                        <p>{{ case.result }}</p>
+                    </div>
+                </div>
+            </article>
         </div>
-        <div class="project-content">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-description">{{ project.description }}</p>
-          <div class="project-tags">
-            <span class="project-tag" *ngFor="let tag of project.tags">{{ tag }}</span>
-          </div>
-        </div>
-      </article>
     </div>
-  </div>
 </section>
