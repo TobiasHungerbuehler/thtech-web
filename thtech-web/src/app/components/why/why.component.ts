@@ -4,7 +4,7 @@ import { NgFor, NgSwitch, NgSwitchCase } from '@angular/common';
 type Reason = {
   title: string;
   description: string;
-  icon: 'person' | 'target' | 'bolt';
+  icon: 'wallet' | 'person' | 'shield'; // Neue Icons angepasst
 };
 
 @Component({
@@ -17,19 +17,19 @@ type Reason = {
 export class WhyComponent {
   reasons: Reason[] = [
     {
-      title: 'Persönlicher Ansprechpartner',
-      description: 'Du sprichst immer direkt mit mir. Kein Ticket-Chaos, kein Support-Labyrinth.',
+      title: 'Fixpreis statt Stunden-Grab',
+      description: 'Ich verkaufe keine Zeit, sondern Ergebnisse. Du bekommst einen garantierten Fixpreis. So kannst du vorher exakt kalkulieren, ob sich die Investition für dich lohnt.',
+      icon: 'wallet',
+    },
+    {
+      title: 'Direkter Partner',
+      description: 'Kein "Account Manager", der stille Post spielt. Du sprichst direkt mit dem Entwickler, der dein Business versteht. Das spart Zeit und verhindert Missverständnisse.',
       icon: 'person',
     },
     {
-      title: 'Kleine Lösungen, grosse Wirkung',
-      description: 'Ich entwickle nur das, was dir wirklich hilft – nicht mehr, nicht weniger.',
-      icon: 'target',
-    },
-    {
-      title: 'Schnell startklar',
-      description: 'Kurze Wege, klare Absprachen, schneller Einsatz.',
-      icon: 'bolt',
+      title: 'Schweizer Qualität & Daten',
+      description: 'Kein Outsourcing, keine billigen Cloud-Tricks. Deine Software und deine Daten bleiben hier in der Schweiz. Sauber gebaut, sicher gehostet.',
+      icon: 'shield',
     },
   ];
 }

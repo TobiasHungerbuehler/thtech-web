@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Warum TH TECH?</h2>
-            <p class="section-description">Kein Theater. Keine Show. Nur Lösungen, die laufen.</p>
+            <p class="section-description">Keine bösen Überraschungen. Weder beim Preis, noch beim Ergebnis.</p>
         </div>
 
         <div class="spec-sheet">
@@ -10,23 +10,25 @@
                 <div class="spec-header">
                     <div class="spec-icon">
                         <ng-container [ngSwitch]="reason.icon">
-                            <svg *ngSwitchCase="'person'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg *ngSwitchCase="'wallet'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+                                <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+                                <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+                            </svg>
+
+                            <svg *ngSwitchCase="'person'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
-                                <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
                             </svg>
-                            <svg *ngSwitchCase="'target'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="9"></circle>
-                                <circle cx="12" cy="12" r="4"></circle>
-                                <line x1="12" y1="2" x2="12" y2="6"></line>
-                                <line x1="12" y1="18" x2="12" y2="22"></line>
-                                <line x1="2" y1="12" x2="6" y2="12"></line>
-                                <line x1="18" y1="12" x2="22" y2="12"></line>
+
+                            <svg *ngSwitchCase="'shield'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                             </svg>
-                            <svg *ngSwitchCase="'bolt'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 11 14 9 22 19 10 11 10 13 2"></polygon></svg>
                         </ng-container>
                     </div>
                     <h3 class="spec-title">{{ reason.title }}</h3>
                 </div>
+
                 <div class="spec-content">
                     <p class="spec-description">{{ reason.description }}</p>
                 </div>

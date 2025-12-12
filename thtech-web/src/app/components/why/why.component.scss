@@ -1,10 +1,11 @@
 .why {
     padding: 6rem 0;
-    background-color: #0a0f1e; // Passt zum Dark Theme
+    background-color: #0a0f1e; /* Dark Mode Background */
+    background-color: #020617;
 }
 
 .section-header {
-    text-align: left; // Wirkt technischer als zentriert
+    text-align: left;
     margin-bottom: 3rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1rem;
@@ -24,6 +25,7 @@
     margin: 0;
 }
 
+/* --- Spec Sheet Layout --- */
 .spec-sheet {
     display: flex;
     flex-direction: column;
@@ -32,7 +34,7 @@
 
 .spec-row {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; // Links Titel/Icon, Rechts Text
+    grid-template-columns: 1fr 1.5fr; /* Links: Titel/Icon, Rechts: Text */
     gap: 2rem;
     padding: 2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -42,7 +44,7 @@
         background-color: rgba(255, 255, 255, 0.02);
 
         .spec-icon svg {
-            color: #22d3ee; // Cyan Highlight bei Hover
+            color: #22d3ee; /* Cyan Highlight bei Hover */
             transform: scale(1.1);
         }
     }
@@ -58,13 +60,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Feste Größe für den Container */
     width: 3rem;
     height: 3rem;
+    flex-shrink: 0;
 
     svg {
+        /* WICHTIG: Größe der SVGs definieren */
         width: 2rem;
         height: 2rem;
-        color: #64748b; // Gedämpftes Blau-Grau im Normalzustand
+        color: #64748b; /* Standardfarbe (Grau-Blau) */
         transition: all 0.3s ease;
     }
 }
@@ -88,9 +93,10 @@
     font-size: 1rem;
 }
 
+/* Mobile: Untereinander stapeln */
 @media (max-width: 768px) {
     .spec-row {
-        grid-template-columns: 1fr; // Untereinander auf Mobile
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 

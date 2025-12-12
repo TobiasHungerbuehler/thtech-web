@@ -1,6 +1,6 @@
 .about {
     padding: 8rem 0;
-    background-color: #020617; /* Dark Mode */
+    // background-color: #020617; /* Dark Mode */
     position: relative;
     overflow: hidden;
 }
@@ -31,8 +31,8 @@
         height: auto;
         display: block;
         /* Optional: Schwarz-Weiß Filter, der bei Hover farbig wird */
-        filter: grayscale(100%);
-        transition: filter 0.5s ease;
+        // filter: grayscale(100%);
+        // transition: filter 0.5s ease;
 
         &:hover {
             filter: grayscale(0%);
