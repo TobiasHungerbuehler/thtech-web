@@ -1,3 +1,9 @@
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-            </svg>
+<svg width="100%" height="100%" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+    <defs>
+        <linearGradient id="gradient" x1="50%" y1="100%" x2="50%" y2="0%">
+            <stop offset="5%" stop-color="#0a0f1e"></stop>
+            <stop offset="95%" stop-color="#3b82f6"></stop>
+        </linearGradient>
+    </defs>
+    <path d="M 0,400 L 0,225 C 132.14285714285714,247.76785714285714 264.2857142857143,270.5357142857143 385,244 C 505.7142857142857,217.46428571428572 614.9999999999999,141.625 731,100 C 847.0000000000001,58.375 969.7142857142858,50.964285714285715 1089,40 C 1208.2857142857142,29.035714285714285 1324.142857142857,14.517857142857142 1440,0 L 1440,400 L 0,400 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
+</svg>
