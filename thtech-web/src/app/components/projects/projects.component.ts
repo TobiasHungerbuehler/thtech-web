@@ -23,7 +23,7 @@ export class ProjectsComponent {
     {
       id: '01',
       category: 'Handel & Logistik',
-      title: 'Der automatische Verkaufsleiter',
+      title: 'Vom Excel-Chaos zur B2B-Plattform',
       icon: 'box',
       situation: 'Ein Pflanzenhändler erstickte in Excel-Listen. Jeder Kunde hatte eigene Preisstaffeln, Lieferbedingungen und Rabatte. Das Schreiben von Offerten dauerte Stunden und war fehleranfällig.',
       solution: 'Wir bauten eine Plattform, die aussieht wie ein Shop, aber denkt wie ein Buchhalter. Sie kennt jeden Kunden-Rabatt und berechnet im Hintergrund automatisch Fracht und Margen.',
