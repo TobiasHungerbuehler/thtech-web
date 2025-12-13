@@ -1,51 +1,48 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 type ProjectCase = {
-  id: string;
-  category: string;
-  title: string;
-  situation: string; // Das Problem (Kopfkino Start)
-  solution: string;  // Deine Arbeit
-  result: string;    // Der Nutzen (Kopfkino Ziel)
-  icon: string;      // Ein passendes Icon
+    id: string;
+    category: string;
+    title: string;
+    situation: string;
+    solution: string;
+    result: string;
+    icon: string;
 };
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+    selector: "app-projects",
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: "./projects.component.html",
+    styleUrls: ["./projects.component.scss"],
 })
 export class ProjectsComponent {
-  cases: ProjectCase[] = [
-    {
-      id: '01',
-      category: 'Handel & Logistik',
-      title: 'Vom Excel-Chaos zur B2B-Plattform',
-      icon: 'box',
-      situation: 'Ein Pflanzenhändler erstickte in Excel-Listen. Jeder Kunde hatte eigene Preisstaffeln, Lieferbedingungen und Rabatte. Das Schreiben von Offerten dauerte Stunden und war fehleranfällig.',
-      solution: 'Wir bauten eine Plattform, die aussieht wie ein Shop, aber denkt wie ein Buchhalter. Sie kennt jeden Kunden-Rabatt und berechnet im Hintergrund automatisch Fracht und Margen.',
-      result: 'Der Kunde bestellt per Klick. Das System erstellt Rechnung, Lieferschein und Etikett für die Produktion automatisch. Zeitersparnis: ~15h pro Woche.'
-    },
-    {
-      id: '02',
-      category: 'Data & KI',
-      title: 'Sprich mit deiner Datenbank',
-      icon: 'database',
-      situation: 'Ein Geschäftsführer wollte wissen: "Wie viele rote Rosen haben wir letzte Woche verkauft?" Um das zu erfahren, musste er die IT anrufen oder mühsam Berichte exportieren.',
-      solution: 'Implementierung eines sicheren AI-Agents (auf Basis von n8n), der direkt an die Datenbank angeschlossen ist. Er versteht Schweizerdeutsch und normale Fragen.',
-      result: 'Der Chef tippt in den Chat: "Zeig mir den Umsatz von gestern" – und bekommt Sekunden später die exakte Grafik. Ohne IT-Ticket, ohne Wartezeit.'
-    },
-    {
-      id: '03',
-      category: 'Produktivität',
-      title: 'Der digitale Fokus-Assistent',
-      icon: 'focus',
-      situation: 'Standard To-Do-Listen reichen oft nicht aus, wenn der Tag chaotisch wird. Wichtige Aufgaben gehen im Tagesgeschäft unter, der Fokus geht verloren.',
-      solution: 'Entwicklung einer Web-App ("Focus Tool"), die den Arbeitstag aktiv strukturiert. Sie zwingt freundlich zur Priorisierung und blendet alles aus, was gerade nicht dran ist.',
-      result: 'Ein Werkzeug, das nicht nur Aufgaben speichert, sondern hilft, sie auch wirklich abzuarbeiten. Aus eigenem Bedarf entstanden, für den täglichen Einsatz optimiert.'
-    }
-  ];
+    cases = [
+        {
+            id: "01",
+            category: "Handel & Logistik",
+            title: "Vom Angebots Chaos zur B2B-Plattform",
+            situation: "Ein Pflanzenhändler kämpfte mit seinem wachsenden Online-Shop. Die komplexe Preislogik mit individuellen Kunden-Rabatten und Lieferbedingungen überforderte das bestehende WordPress-System komplett. Die Seite war langsam, instabil und drohte unter der Last der Plugins auseinanderzufallen.",
+            solution: "Ablösung durch eine modern programmierte Web-Plattform. Sie sieht aus wie ein Shop, ist aber im Kern eine Hochleistungs-Maschine, die alle komplexen Konditionen im Hintergrund fehlerfrei und blitzschnell berechnet.",
+            result: "Das System ist nun stabil und beliebig skalierbar. Neue Lieferanten können einfach angebunden werden und die Plattform wächst flexibel mit den zukünftigen Bedürfnissen des Geschäfts mit.",
+        },
+        {
+            id: "02",
+            category: "Interne Effizienz",
+            title: "Datenabfrage ohne IT-Ticket",
+            situation: 'Die Geschäftsführung brauchte oft schnelle Zahlen ("Umsatz letzte Woche?", "Top-Produkte?"). Dafür musste bisher mühsam ein Report aus der IT angefordert oder manuell in Tabellen gesucht werden.',
+            solution: "Implementierung eines internen KI-Assistenten, der sicher an die Datenbank angeschlossen ist. Er versteht Fragen in normaler Sprache und generiert die passende Auswertung sofort.",
+            result: "Entscheider bekommen ihre Antworten in Sekunden statt Stunden. Die IT wird entlastet, und die Datenbasis wird tatsächlich genutzt, statt nur gespeichert.",
+        },
+        {
+            id: "03",
+            category: "Prozess-Automatisierung",
+            title: "Bestellungen Verarbeiten",
+            situation: "Bestellungen kamen unsortiert per E-Mail rein. Das manuelle Weiterleiten an die Fachabteilungen, das Abtippen für Lieferscheine und das Erstellen individueller Etiketten war fehleranfällig und langsam.",
+            solution: "Ein intelligenter Workflow analysiert nun eingehende E-Mails und verteilt Aufgaben automatisch. Das System erstellt Lieferscheine und druckt die Etiketten exakt nach Kundenangabe – ohne manuelles Zutun.",
+            result: "Lückenlose Kontrolle vom E-Mail-Eingang bis zur Lieferung. Kein Abtippen mehr, keine falschen Etiketten. Der Prozess läuft jetzt schnell, transparent und fehlerfrei.",
+        },
+    ];
 }
