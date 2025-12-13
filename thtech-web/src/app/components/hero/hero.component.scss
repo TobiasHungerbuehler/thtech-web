@@ -85,6 +85,14 @@
     background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
 }
 
+.bg-logo {
+    position: absolute;
+    opacity: 0.03;
+    right: -5%;
+    transform: rotate(12deg);
+    height: 90%;
+}
+
 .hero-content {
     position: relative;
     z-index: 30;
@@ -117,7 +125,7 @@
 
 .hero-title {
     font-size: clamp(2.5rem, 5vw, 3.75rem);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.2;
     color: #ffffff;
 }
@@ -171,7 +179,7 @@
     position: relative;
     width: 100%;
     /* Diese Höhe definiert den Platz, den die Wellen einnehmen */
-    min-height: 320px;
+    min-height: 370px;
     max-height: 40vh;
     margin-bottom: -1px;
 }
@@ -199,7 +207,7 @@
     z-index: 2;
     /* Der Trick: Wir schieben die vordere schwarze Welle 8px nach unten.
        Dadurch wird oben 8px von der hinteren (farbigen) Welle sichtbar. */
-    transform: translateY(2px);
+    transform: translateY(25px);
 }
 
 /* Der Ticker */
