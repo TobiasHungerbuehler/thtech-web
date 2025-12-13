@@ -1,11 +1,5 @@
-import { NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault } from "@angular/common";
 import { Component } from "@angular/core";
-
-type Benefit = {
-    title: string;
-    description: string;
-    icon: "chart" | "cogs" | "code";
-};
+import { NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault } from "@angular/common";
 
 @Component({
     selector: "app-benefits",
@@ -15,20 +9,20 @@ type Benefit = {
     styleUrl: "./benefits.component.scss",
 })
 export class BenefitsComponent {
-    benefits: Benefit[] = [
+    benefits = [
         {
             title: "Massgeschneiderte Web-Plattformen",
-            description: "Schluss mit Excel-Chaos. Ich baue zentrale Plattformen, die deine Daten und Prozesse bündeln. Jeder Mitarbeiter sieht genau das, was er braucht – egal ob im Büro oder mobil.",
+            description: "Schluss mit Excel-Chaos. Ich baue zentrale Plattformen, die Ihre Daten und Prozesse bündeln. Kunden und Mitarbeiter sehen genau das, was sie brauchen – egal ob im Büro oder mobil.",
             icon: "code",
         },
         {
             title: "Prozess-Automatisierung",
-            description: "Warum tippen, wenn es der Computer kann? Von der automatischen Offerte bis zum Lieferschein. Wir verbinden deine Systeme, damit Daten fliessen, statt kopiert zu werden.",
+            description: "Von der automatischen Offerte bis zum Lieferschein. Lassen Sie Ihre Kunden Bestellungen direkt selbst erfassen. Ihr Vertrieb erhält damit bessere Leads und spart wertvolle Zeit.",
             icon: "cogs",
         },
         {
             title: "KI mit Bodenhaftung",
-            description: "Kein Hype, sondern Werkzeuge. Wir setzen KI (Agents) dort ein, wo sie echten Mehrwert bringt: Daten auswerten, Texte generieren oder komplexe Anfragen vorfiltern.",
+            description: "Kein Hype, sondern nützliche Unterstützung für interne Prozesse. Wir nutzen KI-Agenten dort, wo sie Ihr Team entlasten: Daten auswerten oder Texte vorformulieren. Ein starker Hebel – aber immer unter Ihrer Kontrolle.",
             icon: "chart",
         },
     ];
